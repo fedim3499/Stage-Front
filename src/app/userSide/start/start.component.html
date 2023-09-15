@@ -1,0 +1,85 @@
+<br>
+<div class="toptop">
+  <input type="text" name="Search" class="input-group-text" [(ngModel)]="Search"   style="width: 280px ;margin-left: 73%" placeholder="Search">
+</div>
+<hr>
+
+<div class="card mb-4">
+  <div class="container">
+      <div class="row">
+
+
+          <link rel="stylesheet"
+              href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css"
+              integrity="sha256-3sPp8BkKUE7QyPSl6VfBByBroQbKxKG7tsusY2mhbVY=" crossorigin="anonymous" />
+          <div class="container">
+              <div class="row justify-content-center">
+
+                  <div class="col-md-6 col-lg-4 mb-30" *ngFor="let item of categ|cat:Search">
+                      <div class="team-item">
+                          <div class="mb-30 position-relative d-flex align-items-center">
+                              <span class="socials d-inline-block">
+                                <button class="btn btn-primary" (click)="open(item.name)">Start</button>
+
+                              </span>
+                              <span class="img-holder d-inline-block">
+                                  <img src="{{fileUrl+item.img}}" alt="Team" style="height: 200px;">
+                              </span>
+                          </div>
+                          <div class="team-content">
+                              <h5 class="mb-2">{{item.name}}</h5>
+                              <p class="mb-0">{{item.desc}}</p>
+
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+      </div>
+  </div>
+
+
+
+
+
+<div class="modal fade my-modal" tabindex="-1" role="dialog" #edit>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+
+        <div class="form-group">
+          <label for="exampleInputEmail">Confirmation Code</label>
+          <input type="email" class="form-control" id="exampleInputEmail" name="code" [(ngModel)]="code" aria-describedby="emailHelp" placeholder="Enter confirmation code">
+        </div>
+        <button type="button" class="btn btn-success" (click)="validate()">confirm</button>
+
+        <button type="button" class="btn btn-secondary" (click)="close()">Close</button>
+        <div id="formFooter">
+          <!--
+          <a class="underlineHover" (click)="send()">Send an other code</a>
+
+          -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade my-modal" tabindex="-1" role="dialog" #notice>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <h2>Notice</h2>
+        <hr>
+        <h2 style="background: #fd3550">Once you start, you cannot suspend the timer. Please submit your responses in time. Your answers will be sent automatically when the time is up.are you ready <b>{{us?.name}}</b>!!</h2>
+
+        <button type="button" class="btn btn-success" (click)="gototest()">confirm</button>
+
+        <button type="button" class="btn btn-secondary" (click)="close1()">Close</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+

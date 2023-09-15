@@ -1,0 +1,41 @@
+<div class="chat">
+  <div class="chat-header clearfix">
+    <div class="row">
+      <div class="col-lg-6">
+
+        <div class="chat-about">
+          <h6 class="m-b-0">Admin</h6>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="chat-history">
+    <ul class="m-b-0">
+      <div *ngFor="let i of messages">
+
+        <li class="clearfix" *ngIf="i.ids!='admin'">
+          <div class="message-data">
+            <span class="message-data-time">{{i.dates|date: 'dd/MM/yyyy'}},{{i.dates|date: 'shortTime'}}</span>
+          </div>
+          <div class="message my-message">{{i.msg}} </div>
+        </li>
+
+        <li class="clearfix"  *ngIf="i.ids=='admin'">
+          <div class="message-data text-right" style="margin-left: 88%;">
+            <span class="message-data-time " >{{i.dates|date: 'dd/MM/yyyy'}},{{i.dates|date: 'shortTime'}}</span>
+          </div>
+          <div class="message other-message float-right"> {{i.msg}} </div>
+        </li>
+      </div>
+    </ul>
+  </div>
+  <div class="chat-message clearfix">
+    <div class="input-group mb-0">
+      <div class="input-group-prepend">
+        <span (click)="send()" class="input-group-text"><i class="fa fa-send" ></i></span>
+      </div>
+      <input type="text" class="form-control" name=msg [(ngModel)]="msg" placeholder="Enter text here...">
+    </div>
+  </div>
+</div>

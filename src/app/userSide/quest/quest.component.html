@@ -1,0 +1,29 @@
+
+<div class="container">
+
+  <h3>{{question.questionText}}</h3>
+
+  <form [formGroup]="form" >
+    <div class="form-group">
+      <div>
+        <input id="rep1" type="radio" value="{{question.choices[0]}}" name="rep1" (change)="getvalue()"   formControlName="rep1">
+        <label for="rep1">{{question.choices[0]}}</label>
+      </div>
+      <div>
+        <input id="rep2" type="radio" value="{{question.choices[1]}}" name="rep1" (change)="getvalue()" formControlName="rep1">
+        <label for="rep2">{{question.choices[1]}}</label>
+      </div>
+      <div>
+        <input id="rep3" type="radio" value="{{question.choices[2]}}" name="rep1" (change)="getvalue()"   formControlName="rep1">
+        <label for="rep3">{{question.choices[2]}}</label>
+      </div>
+      <div>
+        <input id="rep4" type="radio" value="{{question.choices[3]}}" name="rep1" (change)="getvalue()"  formControlName="rep1">
+        <label for="rep4">{{question.choices[3]}}</label>
+      </div>
+    </div>
+  </form>
+  <img src="{{fileUrl+question.img}}">
+  <button type="button" class="btn btn-primary" (click)="dowlnload()" *ngIf="question.zip!=''">download file</button>
+  <hr>
+</div>
